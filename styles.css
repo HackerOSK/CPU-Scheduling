@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+	font-family: "Poppins", sans-serif;
+	margin: 0;
+	padding: 20px;
+	background-color: #1a1a1a;
+	color: #f1f1f1;
+	overflow-x: hidden;
+}
+
+.container {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #333;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1,
+h2 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #fdda44;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.process {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+label {
+	flex: 1;
+	margin-right: 10px;
+}
+
+input,
+select {
+	flex: 1;
+	padding: 8px;
+	background-color: #444;
+	color: #f1f1f1;
+	border: 1px solid #666;
+	border-radius: 4px;
+}
+
+button {
+	grid-column: span 2;
+	padding: 10px 15px;
+	background-color: #fdda44;
+	color: #333;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+button:hover {
+	background-color: #e6c136;
+}
+
+#chart {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 1px solid #666;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.ganttBlock {
+	width: 100%;
+	background-color: #f9b233;
+	color: #333;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	position: relative;
+}
+
+.progressBar {
+	width: 0;
+	height: 100%;
+	background-color: #fdda44;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+#resultTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+#resultTable th,
+#resultTable td {
+	border: 1px solid #666;
+	padding: 8px;
+	text-align: center;
+}
+
+#resultTable th {
+	background-color: #444;
+}
+
+/* ---------------------------- */
+
+.container {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #333;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+form {
+	width: 50vmax;
+	/* max-width: 600px; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#schedulingForm {
+	width: 100%;
+}
+
+.processContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100vmax;
+	align-items: center;
+}
+
+.process {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100vmax;
+	max-width: 800px;
+	margin-bottom: 10px;
+}
+
+label {
+	flex: 1;
+	margin-right: 10px;
+	text-align: center;
+}
+
+input,
+select {
+	flex: 1;
+	padding: 8px;
+	background-color: #444;
+	color: #f1f1f1;
+	border: 1px solid #666;
+	border-radius: 4px;
+	text-align: center;
+	width: 100%;
+}
+
+select {
+	margin-bottom: 2rem;
+}
+
+#quantumInput {
+	width: 51vmax;
+}
+
+input #arrivalTime0 {
+	width: 120vmax;
+}
+
+button {
+	width: 100%;
+	padding: 10px 15px;
+	background-color: #fdda44;
+	color: #333;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 3px;
+}
+
+button:hover {
+	background-color: #e6c136;
+}
+
+#resultTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* ---------------------------------gantt chart------------------------------------ */
+/* Add CSS for Gantt block and animation */
+/* .gantt-block {
+	display: inline-block;
+	height: 30px;
+	background-color: #252525;
+	margin: 5px 0;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+	text-align: center; /* Center the process name */
+/* color: white; */
+/* }  */
+
+/* .gantt-block::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: rgba(255, 225, 0, 0.7);
+	width: 0;
+	transition: width linear; /* We'll set duration dynamically */
+/* } */
+#ganttChartContainer {
+	display: flex;
+	flex-direction: row; /* Align blocks horizontally */
+	position: relative;
+	/* overflow-x: auto; */
+	height: 100px; /* Allow horizontal scrolling if necessary */
+	width: 100%;
+	align-items: center;
+	background-color: #494949;
+	justify-content: center;
+	border-radius: 1.2rem;
+}
+
+.gantt-block {
+	display: inline-block;
+	height: 70px;
+	border-radius: 2rem;
+	background-color: #171717;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px;
+	color: white;
+	position: relative;
+}
+
+.gantt-wrapper {
+	position: relative;
+	display: inline-block;
+	margin-right: 20px; /* Space between each block */
+	position: relative;
+}
+
+.start-time-label,
+.end-time-label {
+	font-weight: bold;
+	font-size: 12px;
+	position: absolute;
+
+	top: 70px; /* Adjust position to place labels below the blocks */
+}
+
+.progress-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: rgba(248, 237, 25, 0.7);
+	width: 0;
+	transition: width linear;
+	border-radius: 5px;
+}
+
+@keyframes progressAnimation {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+.idle-block {
+	background-color: #ff5722; /* Different color for idle time */
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
